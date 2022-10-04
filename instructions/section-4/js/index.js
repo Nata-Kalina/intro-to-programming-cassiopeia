@@ -23,3 +23,34 @@ function createList() {
   return skillsList;
 }
 createList();
+
+document.getElementById("messages").style.visibility = "hidden";
+
+let messageForm = document.querySelector('[name="leave_message"]');
+messageForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  document.getElementById("messages").style.visibility = "visible";
+  const name = event.target.name.value;
+  const email = event.target.email.value;
+  const message = event.target.message.value;
+  console.log(`Name: ${name}; Email: ${email}; Message: ${message}`);
+  const messageSection = document.querySelector("#messages");
+  const messageList = messageSection.querySelector("ul");
+  const newMessage = document.createElement("li");
+  newMessage.innerHTML = `<a href="mailto:${email}">${name}</a><span> wrote: ${message}</span>`;
+  const removeButton = document.createElement("button");
+  removeButton.innerText = `remove`;
+  removeButton.setAttribute("type", "button");
+  removeButton.addEventListener("click", (event) => {
+    const entry = removeButton.parentNode;
+    messageList.removeChild(entry);
+  });
+  newMessage.appendChild(removeButton);
+  messageList.appendChild(newMessage);
+  const editButton = document.createElement("button");
+  editButton.innerText = `edit`;
+  editButton.setAttribute("type", "button");
+  editButton.addEventListener("click", (event) => {});
+  newMessage.appendChild(editButton);
+  messageForm.reset();
+});
