@@ -1,0 +1,82 @@
+body {
+  background-color: #fcf6eb;
+  color: #2c607a;
+  font-family: "Kalam", sans-serif;
+  font-size: 22px;
+}
+
+section {
+  padding: 5px;
+  margin: 5px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #196263;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #25947e;
+}
+
+#experience ul {
+  list-style-type: square;
+}
+
+#skills ul {
+  list-style-type: square;
+}
+
+#leave-message label {
+  font-size: 20px;
+  color: #1c7399;
+  font-weight: bold;
+}
+
+#leave-message input,
+#leave-message textarea {
+  font-size: 18px;
+  padding: 3px;
+  border-color: #099992;
+  margin: 5px;
+}
+
+#leave-message button[type="submit"] {
+  padding: 10px;
+  background-color: #3a5f8a;
+  border-color: #3a5f8a;
+  color: #faf9af;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+footer {
+  background-color: #cacfce;
+  padding-left: 30px;
+}
+
+#messages #remove-button {
+  margin-left: 40px;
+  margin-right: 40px;
+  background-color: #3a5f8a;
+  border-color: #3a5f8a;
+  color: #faf9af;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100px;
+}
+
+#messages #edit-button {
+  background-color: #3a5f8a;
+  border-color: #3a5f8a;
+  color: #faf9af;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100px;
+}
