@@ -45,6 +45,7 @@ messageForm.addEventListener("submit", (event) => {
   const removeButton = document.createElement("button");
   removeButton.innerText = `Remove`;
   removeButton.setAttribute("type", "button");
+  removeButton.setAttribute("id", "remove-button");
   removeButton.addEventListener("click", (event) => {
     const entry = removeButton.parentNode;
     messageList.removeChild(entry);
@@ -53,6 +54,7 @@ messageForm.addEventListener("submit", (event) => {
   const editButton = document.createElement("button");
   editButton.innerText = `Edit`;
   editButton.setAttribute("type", "button");
+  editButton.setAttribute("id", "edit-button");
   editButton.addEventListener("click", (event) => {
     newMessage.remove();
     const nameElement = document.querySelector("[name = name]");
