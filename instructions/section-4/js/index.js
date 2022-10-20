@@ -4,12 +4,33 @@ let footer = document.querySelector("footer");
 let copyright = document.createElement("p");
 copyright.innerHTML = `Natasha Kalinicheva ${thisYear}`;
 footer.appendChild(copyright);
+
+let contactList = document.createElement("ul");
+contactList.setAttribute("id", "connect");
+let emailContact = document.createElement("li");
+let gitHubContact = document.createElement("li");
+emailContact.innerHTML = `<a href="mailto: natakalinatester@gmail.com" title="Gmail"><i class="fa fa-envelope" style="font-size:24px"></i></a>`;
+gitHubContact.innerHTML = `<a href="https://github.com/Nata-Kalina" target="_blank" title="GitHub"><i class="fa fa-github" style="font-size:24px"></i></a>`;
+contactList.appendChild(emailContact);
+contactList.appendChild(gitHubContact);
+footer.appendChild(contactList);
+
 let skills = [
-  "OS: Windows, Adroid",
-  "Programming: HTML, CSS, JavaScript, SQL, Basic Bash Scripting, Xpath",
-  "Networking: TCP/IP, HTTP",
-  "Project management: Jira, Xray, Confluence",
-  "Tools: Android Studio, VSCode, MS Office, Git Hub, Postman, MySQL, Chrome Dev Tools, Swagger",
+  "Windows",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "SQL",
+  "Xpath",
+  "Jira",
+  "Xray",
+  "Confluence",
+  "VSCode",
+  "MS Office",
+  "Git Hub",
+  "Postman",
+  "MySQL",
+  "Chrome Dev Tools",
 ];
 let skillSection = document.querySelector("#skills");
 let skillsList = document.querySelector("#skills ul");
