@@ -92,3 +92,26 @@ messageForm.addEventListener("submit", (event) => {
 
   messageForm.reset();
 });
+
+let repositories = [];
+const githubRequest = new XMLHttpRequest();
+
+githubRequest.addEventListener("load", function () {
+  repositories = JSON.parse(this.response);
+  const projectSection = document.querySelector("#projects");
+  const projectList = document.querySelector("#projects ul");
+  function createProjectList() {
+    for (let i = 0; i < repositories.length; i++) {
+      let project = document.createElement("li");
+      project.innerHTML = `<a href="${repositories[i].html_url}">${repositories[i].name}</a>`;
+      projectList.appendChild(project);
+    }
+    return projectList;
+  }
+  createProjectList();
+  console.log(repositories[0].name);
+  console.log(repositories);
+});
+
+githubRequest.open("GET", "https://api.github.com/users/Nata-Kalina/repos");
+githubRequest.send();
