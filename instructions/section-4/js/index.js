@@ -2,7 +2,7 @@ let today = new Date();
 let thisYear = today.getFullYear();
 let footer = document.querySelector("footer");
 let copyright = document.createElement("p");
-copyright.innerHTML = `Natasha Kalinicheva ${thisYear}`;
+copyright.innerHTML = `© Natasha Kalinicheva ${thisYear}`;
 footer.appendChild(copyright);
 
 let contactList = document.createElement("ul");
