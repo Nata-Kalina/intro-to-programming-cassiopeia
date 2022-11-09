@@ -171,4 +171,8 @@ footer ul {
   display: none;
 }
 
-
+#error {
+  color: rgb(236, 101, 191);
+  font-size: 22px;
+  font-weight: bold;
+}
