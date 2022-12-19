@@ -3,6 +3,7 @@ body {
   color: #2c607a;
   font-family: "Kalam", sans-serif;
   font-size: 22px;
+  flex-direction: column;
 }
 
 section {
@@ -171,4 +172,8 @@ footer ul {
   display: none;
 }
 
-
+#error {
+  color: rgb(236, 101, 191);
+  font-size: 22px;
+  font-weight: bold;
+}

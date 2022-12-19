@@ -2,7 +2,7 @@ let today = new Date();
 let thisYear = today.getFullYear();
 let footer = document.querySelector("footer");
 let copyright = document.createElement("p");
-copyright.innerHTML = `Natasha Kalinicheva ${thisYear}`;
+copyright.innerHTML = `© Natasha Kalinicheva ${thisYear}`;
 footer.appendChild(copyright);
 
 let contactList = document.createElement("ul");
@@ -93,25 +93,56 @@ messageForm.addEventListener("submit", (event) => {
   messageForm.reset();
 });
 
-let repositories = [];
-const githubRequest = new XMLHttpRequest();
+//let repositories = [];
+//const githubRequest = new XMLHttpRequest();
 
-githubRequest.addEventListener("load", function () {
-  repositories = JSON.parse(this.response);
-  const projectSection = document.querySelector("#projects");
-  const projectList = document.querySelector("#projects ul");
-  function createProjectList() {
-    for (let i = 0; i < repositories.length; i++) {
-      let project = document.createElement("li");
-      project.innerHTML = `<a href="${repositories[i].html_url}">${repositories[i].name}</a>`;
-      projectList.appendChild(project);
+//githubRequest.addEventListener("load", function () {
+//  repositories = JSON.parse(this.response);
+//  const projectSection = document.querySelector("#projects");
+//  const projectList = document.querySelector("#projects ul");
+//  function createProjectList() {
+//    for (let i = 0; i < repositories.length; i++) {
+//      let project = document.createElement("li");
+//      project.innerHTML = `<a href="${repositories[i].html_url}">${repositories[i].name}</a>`;
+//      projectList.appendChild(project);
+//    }
+//    return projectList;
+//  }
+//  createProjectList();
+//  console.log(repositories[0].name);
+//  console.log(repositories);
+//});
+
+//githubRequest.open("GET", "https://api.github.com/users/Nata-Kalina/repos");
+//githubRequest.send();
+
+const githubRequest = fetch("https://api.github.com/users/Nata-Kalina/repos", {
+  method: "GET",
+  mode: "cors",
+})
+  .then((repositories) => {
+    return repositories.json();
+  })
+  .then((repositories) => {
+    const projectSection = document.querySelector("#projects");
+    const projectList = document.querySelector("#projects ul");
+    function createProjectList() {
+      for (let i = 0; i < repositories.length; i++) {
+        let project = document.createElement("li");
+        project.innerHTML = `<a href="${repositories[i].html_url}">${repositories[i].name}</a>`;
+        projectList.appendChild(project);
+      }
+      return projectList;
     }
-    return projectList;
-  }
-  createProjectList();
-  console.log(repositories[0].name);
-  console.log(repositories);
-});
-
-githubRequest.open("GET", "https://api.github.com/users/Nata-Kalina/repos");
-githubRequest.send();
+    createProjectList();
+    console.log(repositories[0].name);
+    console.log(repositories);
+  })
+  .catch((error) => {
+    const projectSection = document.querySelector("#projects");
+    let errorMessage = document.createElement("p");
+    errorMessage.setAttribute("id", "error");
+    errorMessage.innerText = `Sorry! Something went wrong :(`;
+    projectSection.appendChild(errorMessage);
+    return projectSection;
+  });
