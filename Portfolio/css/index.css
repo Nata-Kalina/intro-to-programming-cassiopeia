@@ -171,4 +171,46 @@ footer ul {
   display: none;
 }
 
-
+@media screen and (max-width: 480px) {
+  .menu_image {
+    display: none;
+  }
+  h1,
+  h2 {
+    font-size: 16px;
+    font-weight: 900;
+  }
+  .navbar li {
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .navbar {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 10px;
+  }
+  .nav {
+    display: flex;
+    justify-content: flex-start;
+  }
+  body {
+    background-color: #fcf6eb;
+    color: #2c607a;
+    font-family: "Kalam", sans-serif;
+    font-size: 14px;
+  }
+  .menu {
+    gap: 1rem;
+    padding-left: 10px;
+  }
+  #leave-message label {
+    font-size: 14px;
+    color: #1c7399;
+    font-weight: bold;
+  }
+}
